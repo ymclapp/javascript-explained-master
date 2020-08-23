@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Exercise 22 - Reusable Code - JavaScript Explained</title>
+  </head>
+  <body>
+    <h1>Reusable Code Exercises</h1>
+    <p>Open the web inspector console to test.</p>
+  </body>
+  <script>
+    function getArticleMarkup( title, url, excerpt, author ) {
+      const markup = getHeaderLinkMarkup( title, url ) + getExcerptMarkup( excerpt ) + getAuthorMarkup ( author );
+      return `${markup}`;
+    }
+
+    console.log (getArticleMarkup ("Nothing Gold Can Stay", "https://poets.org/poem/nothing-gold-can-stay", "Nature's first green is gold.  Her hardest hue to hold.", "Robert Frost"));
+
+    function getExcerptMarkup(excerpt) {
+      return `<div class="excerpt"><p>${excerpt}</p></div>`;
+    }
+    function getAuthorMarkup(author) {
+      return `<p>By: ${author}</p>`;
+    }
+    function getHeaderLinkMarkup(title, url) {
+      const link = getMyLinkMarkup(title, url);
+      const header = getMyHeaderMarkup(link);
+      return header;
+    }
+    function getMyLinkMarkup(title, url) {
+      return `<a href="${url}">${title}</a>`;
+    }
+    function getMyHeaderMarkup(title) {
+      return `<h1>${title}</h1>`;
+    }
+  </script>
+</html>
